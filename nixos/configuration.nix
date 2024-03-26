@@ -112,7 +112,7 @@ in {
     brave
     rofi-wayland
     stow
-    # unstable.hyprlock # broken as of 19/03/2024
+    unstable.hyprlock # broken as of 19/03/2024
     unstable.hyprpaper
     fastfetch
     obsidian
