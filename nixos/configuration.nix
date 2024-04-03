@@ -112,7 +112,7 @@ in {
     brave
     rofi-wayland
     stow
-    unstable.hyprlock # broken as of 19/03/2024
+    unstable.hyprlock
     unstable.hyprpaper
     fastfetch
     obsidian
@@ -174,6 +174,8 @@ in {
       };
     };
   };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
