@@ -97,6 +97,7 @@ in {
       firefox
     #  thunderbird
     ];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
@@ -125,6 +126,8 @@ in {
     yarn
     wget
     nwg-look
+    tokyo-night-gtk
+    superTux
   ];
 
    nixpkgs.config.permittedInsecurePackages = [
@@ -140,6 +143,7 @@ in {
   programs.waybar.enable = true;
   programs.starship.enable = true;
   programs.steam.enable = true;
+  programs.fish.enable = true;
 
   users.extraGroups.docker.members = [ "miglou" ];
 
