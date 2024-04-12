@@ -132,7 +132,6 @@ in {
     tokyo-night-gtk
     superTux
     gnumake
-    python3
   ];
 
    nixpkgs.config.permittedInsecurePackages = [
