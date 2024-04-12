@@ -16,6 +16,7 @@ in {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "shinkiro"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -52,6 +53,7 @@ in {
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   programs.hyprland.enable = true;
   programs.hyprland.package = unstable.hyprland;
@@ -115,6 +117,7 @@ in {
     stow
     unstable.hyprlock
     unstable.hyprpaper
+    unstable.hyprshot
     fastfetch
     obsidian
     discord
@@ -128,6 +131,8 @@ in {
     nwg-look
     tokyo-night-gtk
     superTux
+    gnumake
+    python3
   ];
 
    nixpkgs.config.permittedInsecurePackages = [
