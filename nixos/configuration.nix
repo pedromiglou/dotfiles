@@ -124,7 +124,6 @@ in {
     inkscape
     spotify
     zoom-us
-    unstable.distrobox
     nodejs_20
     yarn
     wget
