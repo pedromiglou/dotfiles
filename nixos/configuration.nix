@@ -131,13 +131,14 @@ in {
     tokyo-night-gtk
     superTux
     gnumake
+    brightnessctl
   ];
 
    nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
               ];
 
-
+  # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableNvidia = true;
 
@@ -183,6 +184,13 @@ in {
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  environment.sessionVariables = rec {
+    XDG_BIN_HOME    = "$HOME/.local/bin";
+    PATH = [ 
+      "${XDG_BIN_HOME}"
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
