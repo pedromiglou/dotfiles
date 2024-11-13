@@ -30,3 +30,5 @@ alias helm="microk8s helm"
 # alias logseq="./Logseq-linux-x64-0.10.9.AppImage --no-sandbox"
 
 eval "$(starship init bash)"
+
+fastfetch
