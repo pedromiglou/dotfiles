@@ -26,9 +26,12 @@ unset rc
 
 alias kubectl="microk8s kubectl"
 alias helm="microk8s helm"
+alias setup-ssh='eval "$(ssh-agent -s)" | ssh-add ~/.ssh/github | ssh-add ~/.ssh/bitbucket'
 
 # alias logseq="./Logseq-linux-x64-0.10.9.AppImage --no-sandbox"
 
 eval "$(starship init bash)"
 
 fastfetch
+
+export GOPATH=$HOME/go
