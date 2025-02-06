@@ -17,14 +17,14 @@
 #clock,
 #tray {
   background: #1a1b26;
-  padding: 3px 13px 4px 12px;
+  padding: 2px 12px 4px 13px;
   border: 2px solid #7dcfff;
   box-shadow: 0 0 2 1px #7dcfff;
   margin: 2px 2px 2px 2px;
 }
 
 #temperature {
-  color: #ff9e64
+  color: #ff9e64;
 }
 
 #temperature.critical {
@@ -33,15 +33,17 @@
 
 #cpu {
   color: #9ece6a;
+  padding: 2px 18px 4px 12px;
 }
 
 #memory {
   color: #7aa2f7;
+  padding: 2px 17px 4px 11px;
 }
 
 #workspaces button {
   background: #1a1b26;
-  padding: 3px 12px 4px 12px;
+  padding: 2px 9px 4px 10px;
   border: 2px solid #565f89;
   border-radius: 20px;
   color: #565f89;
@@ -68,20 +70,25 @@
 
 #pulseaudio {
   color: #bb9af7;
+  padding: 2px 14px 4px 13px;
 }
 
 #backlight {
   color: #ff9e64;
+  padding: 2px 18px 4px 12px;
 }
 
 #battery {
   color: #9ece6a;
+  padding: 2px 14px 4px 12px;
 }
 
 #clock {
   color: #7dcfff;
+  padding: 2px 14px 4px 13px;
 }
 
 #tray {
   color: #c0caf5;
+  padding: 2px 15px 4px 12px;
 }
