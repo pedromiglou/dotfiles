@@ -2,10 +2,10 @@
     "reload_style_on_change": true, // For easier test (only reloads on CSS changes)
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "margin-top": 10,
-    "margin-bottom": 7,
-    "margin-left": 10,
-    "margin-right": 10,
+    "margin-top": 8,
+    "margin-bottom": 5,
+    "margin-left": 8,
+    "margin-right": 8,
     "spacing": 6, // Gaps between modules (6px)
 
     // Choose the order of the modules

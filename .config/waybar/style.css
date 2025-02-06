@@ -4,8 +4,8 @@
   font-size: 15px;
 }
 
-window#waybar {
-  background: rgba(0,0,0,0);
+#waybar {
+  background-color: transparent;
 }
 
 #tooltip,
@@ -20,6 +20,8 @@ window#waybar {
   background: #1a1b26;
   padding: 3px 13px 4px 12px;
   border: 2px solid #7dcfff;
+  box-shadow: 0 0 2 1px #7dcfff;
+  margin: 2px 2px 2px 2px;
 }
 
 #temperature {
@@ -42,20 +44,22 @@ window#waybar {
   background: #1a1b26;
   padding: 3px 12px 4px 12px;
   border: 2px solid #565f89;
-  margin-left: 3px;
-  margin-right: 3px;
   border-radius: 20px;
   color: #565f89;
+  box-shadow: 0 0 2 1px #565f89;
+  margin: 2px 4px 2px 4px;
 }
 
 #workspaces button.active {
   border: 2px solid #7dcfff;
   color: #7dcfff;
+  box-shadow: 0 0 2 1px #7dcfff;
 }
 
 #workspaces button.urgent {
   border: 2px solid #f7768e;
   color: #f7768e;
+  box-shadow: 0 0 2 1px #f7768e;
 }
 
 #workspaces button:hover {
