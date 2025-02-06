@@ -1,6 +1,7 @@
 * {
     background-color: transparent;
     text-color: #a9b1d6;
+    
 }
 
 window {
@@ -61,7 +62,7 @@ element selected normal, element selected active {
 }
 
 element-icon {
-    size: 28px;
+    size: 24px;
 }
 
 element-text {

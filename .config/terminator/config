@@ -1,11 +1,10 @@
 [global_config]
-  inactive_color_offset = 1
+  inactive_color_offset = 1.0
   case_sensitive = False
 [keybindings]
 [profiles]
   [[default]]
     background_color = "#1a1b26"
-    font = Hack Nerd Font Bold 10
     foreground_color = "#a9b1d6"
     show_titlebar = False
     scrollbar_position = hidden

@@ -1,6 +1,6 @@
 configuration {
 	modi: "drun";
-	font: "Roboto 14";
+	font: "Noto Sans Regular 15";
 	show-icons: true;
 	icon-theme: "Reversal-blue-dark";
 	display-drun: "";
