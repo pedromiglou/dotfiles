@@ -24,6 +24,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+alias update="sudo dnf upgrade && sudo flatpak update && sudo snap refresh"
 alias kubectl="microk8s kubectl"
 alias helm="microk8s helm"
 alias setup-ssh='eval "$(ssh-agent -s)" | ssh-add ~/.ssh/github | ssh-add ~/.ssh/bitbucket'
