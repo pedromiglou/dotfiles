@@ -1,16 +1,15 @@
 [global_config]
-  inactive_color_offset = 0.61
+  inactive_color_offset = 1.0
   case_sensitive = False
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#0f111a"
-    font = Hack Nerd Font Bold 10
-    foreground_color = "#8f93a2"
+    background_color = "#1a1b26"
+    foreground_color = "#a9b1d6"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 2000
-    palette = "#2e3436:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#d3d7cf:#555753:#f07178:#c3e88d:#f78c6c:#729fcf:#bb80b3:#89ddff:#eeeeec"
+    palette = "#15161e:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#a9b1d6:#414868:#f7768e:#9ece6a:#e0af68:#7aa2f7:#bb9af7:#7dcfff:#9d7cd8"
 [layouts]
   [[default]]
     [[[child1]]]

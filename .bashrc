@@ -17,8 +17,8 @@ eval "$(starship init bash)"
 # alias gym="distrobox enter gym-distrobox"
 # alias code_ros="/home/miglou/.local/bin/vscode-distrobox larcc-distrobox /home/miglou/larcc-distrobox/catkin_ws/src"
 # alias code_gym="/home/miglou/.local/bin/vscode-distrobox gym-distrobox /home/miglou/gym-distrobox/catkin_ws/src"
-alias ubuntu="distrobox enter ubuntu24"
-alias code_ubuntu="/home/miglou/.local/bin/vscode-distrobox ubuntu24 /home/miglou/ubuntu24-distrobox"
+# alias ubuntu="distrobox enter ubuntu24"
+# alias code_ubuntu="/home/miglou/.local/bin/vscode-distrobox ubuntu24 /home/miglou/ubuntu24-distrobox"
 
 # fastfetch
 fastfetch
