@@ -9,9 +9,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-# starfish config
-eval "$(starship init bash)"
-
 # Distrobox
 # alias ros="distrobox enter larcc-distrobox"
 # alias gym="distrobox enter gym-distrobox"
@@ -25,3 +22,5 @@ fastfetch
 
 # pokemon
 # pokemonshow
+
+complete -C /usr/bin/terraform terraform
