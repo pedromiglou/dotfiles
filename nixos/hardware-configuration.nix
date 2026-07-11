@@ -14,32 +14,37 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/42861403-c553-4436-9541-7cf3340c1444";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/28B8-1016";
-      fsType = "vfat";
+    { device = "/dev/disk/by-uuid/7ad63aa1-2c30-46b9-9cbb-da7b338428e4";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/dfbc52da-e61d-4099-a4bc-40e41eee5e47";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/7ad63aa1-2c30-46b9-9cbb-da7b338428e4";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/998d1f3d-f6ce-4105-8f1f-a532a9cff44a"; }
-    ];
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/7ad63aa1-2c30-46b9-9cbb-da7b338428e4";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s20f0u5.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/12CE-A600";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+  
+  fileSystems."/mnt/nas" = {
+    device = "192.168.1.248:/export";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "x-systemd.idle-timeout=300" "noauto" ];
+  };
+
+  swapDevices = lib.mkForce [ ];
+  zramSwap.enable = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
