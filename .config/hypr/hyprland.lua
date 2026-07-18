@@ -8,7 +8,7 @@
 ------------------
 
 require("monitors/shinkiro")
--- require("monitors/hp")
+-- require("hypr/monitors/hp")
 
 
 -------------------
@@ -242,6 +242,10 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+-- Toggle maximized fullscreen with Mod + F
+hl.bind("SUPER + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
+-- Toggle true fullscreen with Mod + Shift + F
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
