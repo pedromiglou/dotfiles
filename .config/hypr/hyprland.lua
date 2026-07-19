@@ -3,6 +3,13 @@
 -- https://wiki.hypr.land/Configuring/Start/
 
 
+----------------------
+---- COLOR SHCEME ----
+----------------------
+
+local colors = require("noctalia-colors")
+
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -67,11 +74,11 @@ hl.config({
         gaps_in  = 7,
         gaps_out = 10,
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
-            active_border   = "rgba(7dcfffff)",
-            inactive_border = "rgba(565f89ff)",
+            active_border   = colors.primary,
+            inactive_border = colors.surface,
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
