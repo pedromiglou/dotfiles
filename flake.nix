@@ -2,26 +2,41 @@
   description = "Home Manager Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "unstable";
     };
     nixGL = {
       url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "unstable";
     };
   };
 
   outputs = {
     self,
     nixpkgs,
+    unstable,
     home-manager,
     nixGL,
     ...
   }: {
+    nixosConfigurations."shinkiro" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./nixos/configuration.nix ];
+      specialArgs = {
+        unstable = import unstable {
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = _: true;
+          };
+        };
+      };
+    };
     homeConfigurations."pedro.amaral" = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
+      pkgs = import unstable {
         system = "x86_64-linux";
         config = {
           allowUnfree = true;

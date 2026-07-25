@@ -2,15 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, unstable, ... }:
 
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ] ++ (if builtins.pathExists ./playground.nix then [ ./playground.nix ] else []);
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -111,6 +109,7 @@ in {
   programs.waybar.enable = true;
 
   environment.systemPackages = with pkgs; [
+    autenticacao-gov-pt-bin
     ansible
     brave
     # brightnessctl
@@ -128,6 +127,8 @@ in {
     hyprpolkitagent
     hyprshot
     nfs-utils
+    # noctalia-qs
+    unstable.noctalia-shell
     # nwg-look
     obsidian
     onlyoffice-desktopeditors
