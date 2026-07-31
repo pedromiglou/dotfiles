@@ -1,6 +1,11 @@
 { config, pkgs, lib, inputs, nixGL, ... }:
 
 {
+  imports = [
+    # configuration playground
+    ./playground.nix
+  ];
+
   targets.genericLinux.enable = true;
   targets.genericLinux.nixGL = {
     packages = nixGL.packages; # you must set this or everything will be a noop
@@ -31,13 +36,14 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    pkgs.hello
     (config.lib.nixGL.wrap pkgs.terminator)
     pkgs.onlyoffice-desktopeditors
     pkgs.noctalia-shell
     pkgs.fastfetch
+    pkgs.wl-clipboard
+    pkgs.slurp
+    pkgs.grim
+    # (config.lib.nixGL.wrap pkgs.google-chrome)
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -82,16 +88,17 @@
     PATH="$HOME/.nix-profile/bin:$PATH"
   '';
 
-  programs.git = {
-    enable = true;
-    settings = {
-      init.defaultBranch = "main";
-    };
-  };
-
   programs.librewolf = {
     enable = true;
   };
+
+  # gtk = {
+  #   enable = true;
+  #   theme.name = "Tokyonight-Dark-Moon";
+  #   theme.package = pkgs.tokyonight-gtk-theme;
+  #   iconTheme.name = "Reversal Icons";
+  #   iconTheme.package = pkgs.reversal-icon-theme;
+  # };
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
