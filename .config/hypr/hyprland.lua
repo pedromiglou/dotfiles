@@ -2,20 +2,29 @@
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
+local hostname = os.getenv("HOSTNAME") or os.getenv("HOST")
 
 ----------------------
 ---- COLOR SHCEME ----
 ----------------------
 
-local colors = require("noctalia-colors")
+local colors
+if hostname == "shinkiro" then
+    colors = require("noctalia-colors")
+else
+    colors = require("hypr/noctalia-colors")
+end
 
 
 ------------------
 ---- MONITORS ----
 ------------------
 
-require("monitors/shinkiro")
--- require("hypr/monitors/hp")
+if hostname == "shinkiro" then
+    require("monitors/shinkiro")
+else
+    require("hypr/monitors/hp")
+end
 
 
 -------------------
@@ -40,7 +49,7 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("GTK_THEME", "Tokyonight-Dark-Moon")
+hl.env("GTK_THEME", "Tokyonight-BL-LB-Dark")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
@@ -244,6 +253,11 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("terminator"))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+if hostname == "shinkiro" then
+    hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+else
+    hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("swaylock"))
+end
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("rofi -show filebrowser"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))

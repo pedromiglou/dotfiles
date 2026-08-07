@@ -44,6 +44,9 @@
     pkgs.slurp
     pkgs.grim
     # (config.lib.nixGL.wrap pkgs.google-chrome)
+    pkgs.nerd-fonts.ubuntu-mono  # Monospaced (Ideal for terminal / text editor)
+    pkgs.nerd-fonts.ubuntu       # Proportional (Original Ubuntu interface font)
+    pkgs.nerd-fonts.ubuntu-sans  # Refreshed Ubuntu Sans version
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -59,7 +62,11 @@
     # '')
   ];
 
+  # Ensures Fontconfig indexes the fonts
+  fonts.fontconfig.enable = true;
+
   programs.obsidian.enable = true;
+  programs.starship.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
