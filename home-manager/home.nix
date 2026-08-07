@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./ricing.nix
     # configuration playground
     ./playground.nix
   ];
@@ -36,17 +37,8 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
-    (config.lib.nixGL.wrap pkgs.terminator)
     pkgs.onlyoffice-desktopeditors
-    pkgs.noctalia-shell
-    pkgs.fastfetch
-    pkgs.wl-clipboard
-    pkgs.slurp
-    pkgs.grim
     # (config.lib.nixGL.wrap pkgs.google-chrome)
-    pkgs.nerd-fonts.ubuntu-mono  # Monospaced (Ideal for terminal / text editor)
-    pkgs.nerd-fonts.ubuntu       # Proportional (Original Ubuntu interface font)
-    pkgs.nerd-fonts.ubuntu-sans  # Refreshed Ubuntu Sans version
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -62,50 +54,14 @@
     # '')
   ];
 
-  # Ensures Fontconfig indexes the fonts
-  fonts.fontconfig.enable = true;
-
   programs.obsidian.enable = true;
-  programs.starship.enable = true;
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = config.lib.nixGL.wrap pkgs.hyprland;
-    configType = "lua";
-    extraConfig = builtins.readFile ./hyprland.lua;
-    systemd.enable = true;
-    systemd.variables = ["--all"];
-  };
-  xdg.configFile."hypr/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/hypr";
-  xdg.configFile."noctalia".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/noctalia";
-  xdg.configFile."terminator".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/terminator";
+  programs.librewolf.enable = true;
+  
   systemd.user.startServices = "sd-switch";
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
-  #   config = {
-  #     common = {
-  #       default = [ "hyprland" "gtk" ];
-  #     };
-  #   };
-  # };
 
   xdg.configFile."environment.d/envvars.conf".text = ''
     PATH="$HOME/.nix-profile/bin:$PATH"
   '';
-
-  programs.librewolf = {
-    enable = true;
-  };
-
-  # gtk = {
-  #   enable = true;
-  #   theme.name = "Tokyonight-Dark-Moon";
-  #   theme.package = pkgs.tokyonight-gtk-theme;
-  #   iconTheme.name = "Reversal Icons";
-  #   iconTheme.package = pkgs.reversal-icon-theme;
-  # };
   
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
