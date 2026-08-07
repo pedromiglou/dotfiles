@@ -47,4 +47,13 @@
   #   iconTheme.name = "Reversal Icons";
   #   iconTheme.package = pkgs.reversal-icon-theme;
   # };
+
+  home.pointerCursor = {
+    enable = true;
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors; # Replace with your preferred cursor package
+    name = "Bibata-Modern-Classic"; # Exact theme folder name
+    size = 24;
+  };
 }

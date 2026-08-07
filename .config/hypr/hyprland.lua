@@ -51,7 +51,9 @@ end)
 
 hl.env("GTK_THEME", "Tokyonight-BL-LB-Dark")
 hl.env("XCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 
 
 -----------------------
