@@ -29,6 +29,9 @@
   xdg.configFile."hypr/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/hypr";
   xdg.configFile."noctalia".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/noctalia";
   xdg.configFile."terminator".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/terminator";
+  
+  # Swaylock is installed with apt
+  xdg.configFile."swaylock".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/swaylock";
 
   # xdg.portal = {
   #   enable = true;

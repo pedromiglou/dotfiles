@@ -1,0 +1,34 @@
+# General Options
+ignore-empty-password
+show-failed-attempts
+
+# Background Settings
+image=~/.wallpaper
+scaling=fill
+# Or use a solid color if no image:
+# color=1e1e2e
+
+# Indicator Dimensions
+indicator-radius=100
+indicator-thickness=15
+
+# Color Customization (RGBA hex format without `#`)
+inside-color=1a1b26ff
+inside-clear-color=1a1b26ff
+inside-ver-color=1a1b26ff
+inside-wrong-color=f7768eff
+
+ring-color=7aa2f7ff
+ring-clear-color=7aa2f7ff
+ring-ver-color=7aa2f7ff
+ring-wrong-color=f7768eff
+
+key-hl-color=bb9af7ff
+bs-hl-color=bb9af7ff
+
+separator-color=00000000
+
+text-color=00000000
+text-clear-color=00000000
+text-ver-color=00000000
+text-wrong-color=00000000
