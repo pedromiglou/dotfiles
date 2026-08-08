@@ -5,8 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "unstable";
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixGL = {
       url = "github:nix-community/nixGL";
@@ -24,7 +24,26 @@
   }: {
     nixosConfigurations."shinkiro" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ ./nixos/configuration.nix ];
+      modules = [
+        ./nixos/configuration.nix
+        home-manager.nixosModules.default
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {
+              unstable = import unstable {
+                system = "x86_64-linux";
+                config = {
+                  allowUnfree = true;
+                  allowUnfreePredicate = _: true;
+                };
+              };
+            };
+            users."miglou" = ./home-manager/shinkiro.nix;
+          };
+        }
+      ];
       specialArgs = {
         unstable = import unstable {
           system = "x86_64-linux";

@@ -41,17 +41,20 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocales = ["pt_PT.UTF-8/UTF-8"];
 
   i18n.extraLocaleSettings = {
+    LC_CTYPE = "en_US.UTF8";
     LC_ADDRESS = "pt_PT.UTF-8";
-    LC_IDENTIFICATION = "pt_PT.UTF-8";
     LC_MEASUREMENT = "pt_PT.UTF-8";
+    LC_MESSAGES = "en_US.UTF-8";
     LC_MONETARY = "pt_PT.UTF-8";
     LC_NAME = "pt_PT.UTF-8";
-    LC_NUMERIC = "pt_PT.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "pt_PT.UTF-8";
     LC_TELEPHONE = "pt_PT.UTF-8";
     LC_TIME = "pt_PT.UTF-8";
+    LC_COLLATE = "pt_PT.UTF-8";
   };
 
   # Configure console keymap
@@ -90,59 +93,13 @@
   users.users.miglou = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      librewolf
-    ];
   };
   
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   nixpkgs.config.allowUnfree = true;
-
-  programs.firefox.enable = true;
-  programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
-  programs.git.enable = true;
-  programs.java.enable = true;
-  programs.starship.enable = true;
-  programs.steam.enable = true;
-  programs.waybar.enable = true;
-
   environment.systemPackages = with pkgs; [
-    autenticacao-gov-pt-bin
-    ansible
-    brave
-    # brightnessctl
-    discord
-    distrobox
-    fastfetch
-    gimp
-    (heroic.override {
-      extraPkgs = pkgs': with pkgs'; [
-        gamescope
-        gamemode
-      ];
-    })
-    hyprpolkitagent
-    hyprshot
     nfs-utils
-    # noctalia-qs
-    unstable.noctalia-shell
-    # nwg-look
-    obsidian
-    onlyoffice-desktopeditors
-    rofi
-    spotify
-    stow
-    supertux
-    terminator
-    terraform
-    # tokyo-night-gtk
-    tree
-    vlc
-    # vscodium
-    vscode
-    wget
   ];
 
   # storage optimization options
@@ -206,6 +163,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
-
