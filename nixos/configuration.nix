@@ -123,7 +123,6 @@
         gamemode
       ];
     })
-    hyprpaper
     hyprpolkitagent
     hyprshot
     nfs-utils

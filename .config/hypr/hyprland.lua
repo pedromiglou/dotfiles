@@ -2,7 +2,9 @@
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
-local hostname = os.getenv("HOSTNAME") or os.getenv("HOST")
+local f = io.popen("hostname")
+local hostname = f:read("*l") or "unknown"
+f:close()
 
 ----------------------
 ---- COLOR SHCEME ----
