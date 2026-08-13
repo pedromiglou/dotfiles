@@ -8,6 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./gaming.nix
   ] ++ (if builtins.pathExists ./playground.nix then [ ./playground.nix ] else []);
 
   # Use the systemd-boot EFI boot loader.
@@ -65,12 +66,20 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the Cinnamon Desktop Environment & SDDM.
-  services.displayManager.sddm.enable = true;
+  # Enable SSDM
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    extraPackages = with pkgs; [
+      kdePackages.qtmultimedia # Required for video backgrounds/audio
+    ];
+    theme = "sddm-astronaut-theme";
+  };
+
+  # Enable the Cinnamon Desktop Environment
   services.xserver.desktopManager.cinnamon.enable = true;
 
-  # Enable the Hyprland Window Manager & SDDM Wayland.
-  services.displayManager.sddm.wayland.enable = true;
+  # Enable the Hyprland Window Manager & Hyprlock
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
 
@@ -100,6 +109,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     nfs-utils
+    sddm-astronaut
   ];
 
   # storage optimization options

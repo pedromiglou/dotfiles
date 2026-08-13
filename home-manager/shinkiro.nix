@@ -17,14 +17,6 @@
     discord
     fastfetch
     gimp
-    gamemode
-    gamescope
-    (heroic.override {
-      extraPkgs = pkgs': with pkgs'; [
-        gamescope
-        gamemode
-      ];
-    })
     hyprpolkitagent
     hyprshot
     librewolf
@@ -35,11 +27,8 @@
     obsidian
     onlyoffice-desktopeditors
     spotify
-    steam
-    supertux
     terminator
     terraform
-    # tokyo-night-gtk
     tree
     vlc
     vscode
