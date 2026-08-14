@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, nixGL, ... }:
+{ config, pkgs, lib, inputs, unstable, nixGL, ... }:
 
 {
   home.packages = [

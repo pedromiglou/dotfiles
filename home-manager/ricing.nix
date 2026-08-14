@@ -1,12 +1,9 @@
-{ config, pkgs, lib, inputs, nixGL, ... }:
+{ config, pkgs, lib, inputs, unstable, nixGL, ... }:
 
 {
-  # Ensures Fontconfig indexes the fonts
-  fonts.fontconfig.enable = true;
-
   home.packages = [
     (config.lib.nixGL.wrap pkgs.terminator)
-    pkgs.noctalia-shell
+    unstable.noctalia-shell
     pkgs.fastfetch
     pkgs.wl-clipboard
     pkgs.slurp
@@ -43,13 +40,20 @@
   #   };
   # };
 
-  # gtk = {
-  #   enable = true;
-  #   theme.name = "Tokyonight-Dark-Moon";
-  #   theme.package = pkgs.tokyonight-gtk-theme;
-  #   iconTheme.name = "Reversal Icons";
-  #   iconTheme.package = pkgs.reversal-icon-theme;
-  # };
+  gtk = {
+    enable = true;
+    colorScheme = "dark";
+    theme.name = "Tokyonight-Dark";
+    theme.package = pkgs.tokyonight-gtk-theme;
+    iconTheme.name = "Reversal-blue-dark";
+    iconTheme.package = pkgs.reversal-icon-theme.override {
+      colorVariants = [ "blue" ];
+    };
+    font = {
+      name = "Ubuntu";
+      size = 10;
+    };
+  };
 
   home.pointerCursor = {
     enable = true;
@@ -58,5 +62,37 @@
     package = pkgs.bibata-cursors; # Replace with your preferred cursor package
     name = "Bibata-Modern-Classic"; # Exact theme folder name
     size = 24;
+  };
+
+  # Ensures Fontconfig indexes the fonts
+  fonts.fontconfig = {
+    enable = true;
+
+    defaultFonts = {
+      sansSerif = [ "Ubuntu" ];
+      serif = [ "Ubuntu" ];
+      monospace = [ "Ubuntu Mono" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
+  # Cinnamon Settings
+  dconf.settings = {
+    "org/cinnamon/desktop/interface" = {
+      gtk-theme = "Tokyonight-Dark";
+      icon-theme = "Reversal-blue-dark";
+      cursor-theme = "Bibata-Modern-Classic";
+      font-name = "Ubuntu 10";
+    };
+
+    "org/cinnamon/theme" = {
+      name = "Tokyonight-Dark";
+    };
+
+    "org/cinnamon/desktop/background" = {
+      picture-uri = "file://${config.home.homeDirectory}/.wallpaper";
+      picture-options = "stretch";
+      primary-color = "#1a1b26";
+    };
   };
 }

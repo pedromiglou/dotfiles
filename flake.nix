@@ -10,7 +10,7 @@
     };
     nixGL = {
       url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -55,7 +55,7 @@
       };
     };
     homeConfigurations."pedro.amaral" = home-manager.lib.homeManagerConfiguration {
-      pkgs = import unstable {
+      pkgs = import nixpkgs {
         system = "x86_64-linux";
         config = {
           allowUnfree = true;
@@ -64,6 +64,13 @@
       };
       extraSpecialArgs = {
         inherit nixGL;
+        unstable = import unstable {
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            allowUnfreePredicate = _: true;
+          };
+        };
       };
       modules = [./home-manager/home.nix];
     };

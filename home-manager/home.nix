@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, nixGL, ... }:
+{ config, pkgs, lib, inputs, unstable, nixGL, ... }:
 
 {
   imports = [
@@ -30,6 +30,13 @@
   nix = {
     package = pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # generations/packages cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
 
   # The home.packages option allows you to install Nix packages into your
