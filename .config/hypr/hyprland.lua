@@ -39,6 +39,11 @@ end
 -- Or execute your favorite apps at launch like this:
 
 hl.on("hyprland.start", function ()
+  if hostname ~= "shinkiro" then
+    hl.exec_cmd("systemctl --user daemon-reload")
+    hl.exec_cmd("systemctl --user restart pipewire wireplumber")
+    hl.exec_cmd("systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland")
+  end
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   -- hl.exec_cmd("hyprpaper")
   hl.exec_cmd("noctalia-shell & nm-applet & blueman-applet")
@@ -50,14 +55,6 @@ end)
 -------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
-if hostname ~= "shinkiro" then
-    hl.env("GTK_THEME", "Tokyonight-BL-LB-Dark")
-    hl.env("XCURSOR_SIZE", "24")
-    hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
-    hl.env("HYPRCURSOR_SIZE", "24")
-    hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
-end
 
 
 -----------------------
