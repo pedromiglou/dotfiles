@@ -44,8 +44,8 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
+    (config.lib.nixGL.wrap pkgs.google-chrome)
     pkgs.onlyoffice-desktopeditors
-    # (config.lib.nixGL.wrap pkgs.google-chrome)
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
