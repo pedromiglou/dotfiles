@@ -30,16 +30,6 @@
   # Swaylock is installed with apt
   xdg.configFile."swaylock".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.config/swaylock";
 
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
-  #   config = {
-  #     common = {
-  #       default = [ "hyprland" "gtk" ];
-  #     };
-  #   };
-  # };
-
   gtk = {
     enable = true;
     colorScheme = "dark";

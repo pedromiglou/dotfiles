@@ -56,6 +56,12 @@ end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
+if hostname ~= "shinkiro" then
+    hl.env("GTK_THEME", "Tokyonight-Dark")
+    hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
+    hl.env("XCURSOR_SIZE", "24")
+end
+
 
 -----------------------
 ----- PERMISSIONS -----
