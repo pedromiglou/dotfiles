@@ -46,7 +46,7 @@ hl.on("hyprland.start", function ()
   end
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   -- hl.exec_cmd("hyprpaper")
-  hl.exec_cmd("noctalia-shell & nm-applet & blueman-applet")
+  hl.exec_cmd("noctalia & nm-applet")
 end)
 
 
@@ -269,7 +269,7 @@ else
 end
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("rofi -show filebrowser"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 -- Toggle maximized fullscreen with Mod + F

@@ -3,7 +3,7 @@
 {
   home.packages = [
     (config.lib.nixGL.wrap pkgs.terminator)
-    unstable.noctalia-shell
+    unstable.noctalia
     pkgs.fastfetch
     pkgs.wl-clipboard
     pkgs.slurp

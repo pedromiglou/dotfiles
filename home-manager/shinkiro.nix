@@ -23,7 +23,7 @@
     nerd-fonts.ubuntu-mono  # Monospaced (Ideal for terminal / text editor)
     nerd-fonts.ubuntu       # Proportional (Original Ubuntu interface font)
     nerd-fonts.ubuntu-sans  # Refreshed Ubuntu Sans version
-    unstable.noctalia-shell
+    unstable.noctalia
     obsidian
     onlyoffice-desktopeditors
     spotify

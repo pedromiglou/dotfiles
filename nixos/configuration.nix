@@ -16,7 +16,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
 
   # Allow NFS NAS access.
   boot.supportedFilesystems = [ "nfs" ];
@@ -108,6 +109,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    localsend
     nfs-utils
     sddm-astronaut
   ];
